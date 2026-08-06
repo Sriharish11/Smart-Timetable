@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: Inter, system-ui, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .stm-input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm outline-none transition focus:border-royal focus:ring-2 focus:ring-royal/20;
+  }
+  .stm-label {
+    @apply mb-1 block text-sm font-medium text-slate-700;
+  }
+  .stm-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .stm-btn-primary {
+    @apply stm-btn bg-royal text-white hover:bg-royal-dark focus:ring-royal/40;
+  }
+  .stm-btn-ghost {
+    @apply stm-btn bg-white text-slate-700 ring-1 ring-inset ring-slate-300 hover:bg-slate-50;
+  }
+  .stm-btn-danger {
+    @apply stm-btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-400;
+  }
+  .stm-card {
+    @apply rounded-xl border border-slate-200 bg-white shadow-card;
+  }
+  .stm-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #print-area,
+  #print-area * {
+    visibility: visible;
+  }
+  #print-area {
+    position: absolute;
+    inset: 0;
+    padding: 16px;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
